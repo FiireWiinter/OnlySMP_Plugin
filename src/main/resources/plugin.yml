@@ -1,0 +1,13 @@
+name: OnlySMP
+version: '${version}'
+main: xyz.fiire.onlysmp.OnlySMP
+api-version: 1.16
+depend: [ PlaceholderAPI ]
+authors: [ FiireWiinter ]
+description: Custom Plugin for the Only SMP
+website: https://www.fiire.xyz
+
+commands:
+  test:
+    usage: You can't use this, this is limited to FiireWiinter
+    description: FiireWiinter's Test Command
