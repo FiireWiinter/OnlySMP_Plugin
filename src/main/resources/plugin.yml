@@ -1,7 +1,7 @@
 name: OnlySMP
 version: '${version}'
 main: xyz.fiire.onlysmp.OnlySMP
-api-version: 1.18.1
+api-version: 1.18
 depend: [ PlaceholderAPI ]
 authors: [ FiireWiinter ]
 description: Custom Plugin for the Only SMP
