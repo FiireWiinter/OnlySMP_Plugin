@@ -18,11 +18,19 @@ public class CoinsOnBreak implements Listener {
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
 
+    public static boolean isValidBlock(Material mat) {
+        return  mat == Material.DIAMOND_ORE ||
+                mat == Material.DEEPSLATE_DIAMOND_ORE ||
+                mat == Material.EMERALD_ORE ||
+                mat == Material.DEEPSLATE_EMERALD_ORE ||
+                mat == Material.ANCIENT_DEBRIS;
+    }
+
     @EventHandler
     public void onBreak(BlockBreakEvent e) {
         Player p = e.getPlayer();
         Block b = e.getBlock();
-        if (b.getType() == Material.DIAMOND_ORE || b.getType() == Material.ANCIENT_DEBRIS || b.getType() == Material.EMERALD_ORE) {
+        if (isValidBlock(b.getType())) {
             p.sendMessage("detected");
         }
     }
