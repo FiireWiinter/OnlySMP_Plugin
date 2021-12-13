@@ -2,6 +2,7 @@ package xyz.fiire.onlysmp;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import xyz.fiire.onlysmp.listeners.CoinsOnBreak;
 import xyz.fiire.onlysmp.papi.PAPI;
 import xyz.fiire.onlysmp.utils.NBTStorage;
 import xyz.fiire.onlysmp.utils.Utils;
@@ -21,7 +22,7 @@ public final class OnlySMP extends JavaPlugin {
         // tbi
 
         // Init Listeners
-        // tbi
+        new CoinsOnBreak(this);
 
         // Init PAPI
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
