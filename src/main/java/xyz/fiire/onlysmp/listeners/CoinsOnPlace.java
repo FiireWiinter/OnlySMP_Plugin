@@ -5,30 +5,26 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import xyz.fiire.onlysmp.OnlySMP;
 import xyz.fiire.onlysmp.utils.SQLite;
 import xyz.fiire.onlysmp.utils.Utils;
 
-public class CoinsOnBreak implements Listener {
+public class CoinsOnPlace implements Listener {
 
     private OnlySMP plugin;
 
-    public CoinsOnBreak(OnlySMP plugin) {
+    public CoinsOnPlace(OnlySMP plugin) {
         this.plugin = plugin;
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
 
     @EventHandler
-    public void onBreak(BlockBreakEvent e) {
+    public void onPlace(BlockPlaceEvent e) {
         Player p = e.getPlayer();
         Block b = e.getBlock();
         if (Utils.isValidCoinBlock(b.getType())) {
-            if (SQLite.getLocExist(b.getLocation().toString())) { // if loc is in db, it's placed by a player
-                SQLite.delLoc(b.getLocation().toString()); // not natural
-            } else {
-                // natural
-            }
+            SQLite.setLoc(b.getLocation().toString()); // add to db to detect placed blocks
         }
     }
 }

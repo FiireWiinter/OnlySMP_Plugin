@@ -94,4 +94,13 @@ public class Utils {
     public static void titlePlayer(Player player, String title, String subtitle, int fadeInSecs, int staySecs, int fadeOutSecs) {
         player.sendTitle(chat(title), chat(subtitle), fadeInSecs * 20, staySecs * 20, fadeOutSecs * 20);
     }
+
+    // custom
+    public static boolean isValidCoinBlock(Material mat) {
+        return  mat == Material.DIAMOND_ORE ||
+                mat == Material.DEEPSLATE_DIAMOND_ORE ||
+                mat == Material.EMERALD_ORE ||
+                mat == Material.DEEPSLATE_EMERALD_ORE ||
+                mat == Material.ANCIENT_DEBRIS;
+    }
 }
