@@ -2,6 +2,7 @@ package xyz.fiire.onlysmp.utils;
 
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 import xyz.fiire.onlysmp.OnlySMP;
@@ -18,7 +19,9 @@ public class NBTStorage {
         return p.getPersistentDataContainer();
     }
 
-    // Get Functions
+    public static PersistentDataContainer getItemStackPDC(ItemStack i) { return i.getItemMeta().getPersistentDataContainer(); }
+
+    // Get Functions Player
     public static String getPlayerString(Player p, String key) {
         return getPlayerPDC(p).get(new NamespacedKey(plugin, key), PersistentDataType.STRING);
     }
@@ -36,7 +39,7 @@ public class NBTStorage {
         return num == 1;
     }
 
-    // Set Functions
+    // Set Functions Player
     public static void setPlayerString(Player p, String key, String val) {
         getPlayerPDC(p).set(new NamespacedKey(plugin, key), PersistentDataType.STRING, val);
     }
@@ -50,4 +53,33 @@ public class NBTStorage {
         if (val) { num = 1; } else { num = 0; }
         getPlayerPDC(p).set(new NamespacedKey(plugin, key), PersistentDataType.INTEGER, num);
     }
+
+    // Get Functions ItemStack
+    public static Integer getItemStackInt(ItemStack i, String key) {
+        return getItemStackPDC(i).get(new NamespacedKey(plugin, key), PersistentDataType.INTEGER);
+    }
+
+    public static Boolean getItemStackBool(ItemStack i, String key) {
+        Integer num = getItemStackPDC(i).get(new NamespacedKey(plugin, key), PersistentDataType.INTEGER);
+        if (num == null) {
+            setItemStackBool(i, key, false);
+            return false;
+        }
+        return num == 1;
+    }
+
+    // add String and Bool later
+
+    // Set Functions ItemStack
+    public static void setItemStackInt(ItemStack i, String key, Integer val) {
+        getItemStackPDC(i).set(new NamespacedKey(plugin, key), PersistentDataType.INTEGER, val);
+    }
+
+    public static void setItemStackBool(ItemStack i, String key, Boolean val) {
+        int num;
+        if (val) { num = 1; } else { num = 0; }
+        getItemStackPDC(i).set(new NamespacedKey(plugin, key), PersistentDataType.INTEGER, num);
+    }
+
+
 }

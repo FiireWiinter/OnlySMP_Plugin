@@ -60,18 +60,18 @@ public class Utils {
     public static ItemStack createItem(Inventory inv, String material, int amount, int invSlot, String displayName, String... loreString) {
         List<String> lore = new ArrayList();
         ItemStack item = new ItemStack(Material.matchMaterial(material), amount);
-        return getItemStack(inv, invSlot, displayName, lore, item, loreString);
+        return addItemStackLore(inv, invSlot, displayName, lore, item, loreString);
     }
 
     // Creates an item for GUIs with special bytes
     public static ItemStack createItemByte(Inventory inv, String material, int byteId, int amount, int invSlot, String displayName, String... loreString) {
         List<String> lore = new ArrayList();
         ItemStack item = new ItemStack(Material.matchMaterial(material), amount, (short) byteId);
-        return getItemStack(inv, invSlot, displayName, lore, item, loreString);
+        return addItemStackLore(inv, invSlot, displayName, lore, item, loreString);
     }
 
     // Add meta and add to inventory
-    private static ItemStack getItemStack(Inventory inv, int invSlot, String displayName, List<String> lore, ItemStack item, String[] loreString) {
+    private static ItemStack addItemStackLore(Inventory inv, int invSlot, String displayName, List<String> lore, ItemStack item, String[] loreString) {
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(chat(displayName));
 
@@ -102,5 +102,16 @@ public class Utils {
                 mat == Material.EMERALD_ORE ||
                 mat == Material.DEEPSLATE_EMERALD_ORE ||
                 mat == Material.ANCIENT_DEBRIS;
+    }
+
+    public static ItemStack createCoin(Integer value) {
+        ItemStack item = new ItemStack(Material.SUNFLOWER);
+        ItemMeta meta = item.getItemMeta();
+        meta.setCustomModelData(10);
+        meta.setDisplayName(chat("&e&lCoin"));
+        item.setItemMeta(meta);
+        NBTStorage.setItemStackInt(item, "osmp_coin_value", value);
+        NBTStorage.setItemStackBool(item, "osmp_coin_pickup", true);
+        return item;
     }
 }
