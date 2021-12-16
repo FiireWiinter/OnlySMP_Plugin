@@ -3,6 +3,7 @@ package xyz.fiire.onlysmp.utils;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 import xyz.fiire.onlysmp.OnlySMP;
@@ -68,17 +69,19 @@ public class NBTStorage {
         return num == 1;
     }
 
-    // add String and Bool later
-
     // Set Functions ItemStack
     public static void setItemStackInt(ItemStack i, String key, Integer val) {
-        getItemStackPDC(i).set(new NamespacedKey(plugin, key), PersistentDataType.INTEGER, val);
+        ItemMeta meta = i.getItemMeta();
+        meta.getPersistentDataContainer().set(new NamespacedKey(plugin, key), PersistentDataType.INTEGER, val);
+        i.setItemMeta(meta);
     }
 
     public static void setItemStackBool(ItemStack i, String key, Boolean val) {
         int num;
         if (val) { num = 1; } else { num = 0; }
-        getItemStackPDC(i).set(new NamespacedKey(plugin, key), PersistentDataType.INTEGER, num);
+        ItemMeta meta = i.getItemMeta();
+        meta.getPersistentDataContainer().set(new NamespacedKey(plugin, key), PersistentDataType.INTEGER, num);
+        i.setItemMeta(meta);
     }
 
 

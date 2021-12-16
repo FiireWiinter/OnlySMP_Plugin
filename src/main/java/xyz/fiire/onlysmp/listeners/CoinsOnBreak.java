@@ -30,7 +30,6 @@ public class CoinsOnBreak implements Listener {
                 SQLite.delLoc(b.getLocation().toString()); // not natural
             } else {
                 if (new Random().nextInt(10) == 5) { // 1 in 10 chance
-                    Utils.debug("spawning coin");
                     b.getWorld().dropItemNaturally(b.getLocation(), Utils.createCoin(1));
                 }
             }

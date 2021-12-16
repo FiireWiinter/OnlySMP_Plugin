@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.fiire.onlysmp.commands.TestCommand;
 import xyz.fiire.onlysmp.listeners.CoinsOnBreak;
+import xyz.fiire.onlysmp.listeners.CoinsOnPickup;
 import xyz.fiire.onlysmp.listeners.CoinsOnPlace;
 import xyz.fiire.onlysmp.papi.PAPI;
 import xyz.fiire.onlysmp.utils.Config;
@@ -30,6 +31,7 @@ public final class OnlySMP extends JavaPlugin {
         // Init Listeners
         new CoinsOnBreak(this);
         new CoinsOnPlace(this);
+        new CoinsOnPickup(this);
 
         // Init PAPI
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
