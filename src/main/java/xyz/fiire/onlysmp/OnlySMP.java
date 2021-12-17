@@ -3,6 +3,7 @@ package xyz.fiire.onlysmp;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.fiire.onlysmp.commands.TestCommand;
+import xyz.fiire.onlysmp.listeners.PlayerJoin;
 import xyz.fiire.onlysmp.listeners.coins.CoinsOnBreak;
 import xyz.fiire.onlysmp.listeners.coins.CoinsOnPickup;
 import xyz.fiire.onlysmp.listeners.coins.CoinsOnPlace;
@@ -29,6 +30,7 @@ public final class OnlySMP extends JavaPlugin {
         // tbi
 
         // Init Listeners
+        new PlayerJoin(this);
         new CoinsOnBreak(this);
         new CoinsOnPlace(this);
         new CoinsOnPickup(this);

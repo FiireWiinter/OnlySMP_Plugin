@@ -5,12 +5,14 @@ import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.inventory.ItemStack;
 import xyz.fiire.onlysmp.OnlySMP;
 import xyz.fiire.onlysmp.utils.NBTStorage;
+import xyz.fiire.onlysmp.utils.SQLite;
 import xyz.fiire.onlysmp.utils.Utils;
 
 public class CoinsOnPickup implements Listener {
@@ -36,7 +38,13 @@ public class CoinsOnPickup implements Listener {
                         item.remove();
                         int amount = itemStack.getAmount();
                         Integer value = NBTStorage.getItemStackInt(itemStack, "osmp_coin_value");
-                        Utils.debug(String.format("%s coins have been picked up with a total value of %s", amount, amount*value));
+                        Player player = (Player) entity;
+                        String playerUUID = player.getUniqueId().toString();
+                        Integer currentNum = (Integer) SQLite.getUserValue("amount", playerUUID);
+                        int newAmount = currentNum+(amount*value);
+                        SQLite.setUserValue("amount", Integer.toString(newAmount), playerUUID);
+                        String debugCurrentAmount = SQLite.getUserValue("amount", playerUUID).toString();
+                        Utils.debug(String.format("%s coins | value: %s | old total: %s | new total: %s", amount, amount*value, currentNum, debugCurrentAmount));
                     }
                 }
             }

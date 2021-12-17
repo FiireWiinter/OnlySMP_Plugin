@@ -21,18 +21,15 @@ public class SQLite {
         // db.executeStatement("INSERT OR IGNORE INTO kenny (uuid, name, event) VALUES ('0', 'stopped', '-');");
     }
 
-    /*
-    public static Object getValue(String column, String uuid) {
-        return db.queryValue(String.format("SELECT * FROM kenny WHERE uuid='%s'", uuid), column);
-    }
-
-    public static void setValue(String column, String value, String uuid) {
-        db.executeStatement(String.format("UPDATE kenny SET `%s`='%s' WHERE uuid='%s'", column, value, uuid));
-    }
-    */
-
     // custom
-    // this will be used later
+    public static Object getUserValue(String column, String uuid) {
+        return db.queryValue(String.format("SELECT * FROM users WHERE uuid='%s'", uuid), column);
+    }
+
+    public static void setUserValue(String column, String value, String uuid) {
+        db.executeStatement(String.format("UPDATE users SET `%s`='%s' WHERE uuid='%s'", column, value, uuid));
+    }
+
     public static void addPlayer(Player player) {
         String uuid = player.getUniqueId().toString();
         String name = player.getName();
