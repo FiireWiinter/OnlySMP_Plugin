@@ -1,4 +1,4 @@
-package xyz.fiire.onlysmp.listeners;
+package xyz.fiire.onlysmp.listeners.coins;
 
 import org.bukkit.Bukkit;
 import org.bukkit.block.Block;

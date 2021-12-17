@@ -1,4 +1,4 @@
-package xyz.fiire.onlysmp.listeners;
+package xyz.fiire.onlysmp.listeners.coins;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -34,9 +34,9 @@ public class CoinsOnPickup implements Listener {
                     if (NBTStorage.getItemStackBool(itemStack, "osmp_coin_pickup")) {
                         e.setCancelled(true);
                         item.remove();
+                        int amount = itemStack.getAmount();
                         Integer value = NBTStorage.getItemStackInt(itemStack, "osmp_coin_value");
-                        Utils.debug("coin has been picked up and coin had the value of " + value);
-                        // TODO: ISSUE: IF THERE ARE MULTIPLE COINS IN A PILE, THEY WILL COUNT AS ONE!
+                        Utils.debug(String.format("%s coins have been picked up with a total value of %s", amount, amount*value));
                     }
                 }
             }
