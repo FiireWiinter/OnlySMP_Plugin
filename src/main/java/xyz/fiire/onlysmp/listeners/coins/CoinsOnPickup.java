@@ -1,15 +1,14 @@
 package xyz.fiire.onlysmp.listeners.coins;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Item;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
+import org.bukkit.*;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.FireworkMeta;
 import xyz.fiire.onlysmp.OnlySMP;
 import xyz.fiire.onlysmp.utils.NBTStorage;
 import xyz.fiire.onlysmp.utils.SQLite;
@@ -36,6 +35,7 @@ public class CoinsOnPickup implements Listener {
                     if (NBTStorage.getItemStackBool(itemStack, "osmp_coin_pickup")) {
                         e.setCancelled(true);
                         item.remove();
+
                         int amount = itemStack.getAmount();
                         Integer value = NBTStorage.getItemStackInt(itemStack, "osmp_coin_value");
                         Player player = (Player) entity;
@@ -44,7 +44,16 @@ public class CoinsOnPickup implements Listener {
                         int newAmount = currentNum+(amount*value);
                         SQLite.setUserValue("amount", Integer.toString(newAmount), playerUUID);
                         String debugCurrentAmount = SQLite.getUserValue("amount", playerUUID).toString();
-                        Utils.debug(String.format("%s coins | value: %s | old total: %s | new total: %s", amount, amount*value, currentNum, debugCurrentAmount));
+
+                        Location loc = e.getEntity().getLocation().add(0, 0.5, 0);
+                        Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
+                        FireworkMeta fwm = fw.getFireworkMeta();
+                        fwm.setPower(2);
+                        fwm.addEffect(FireworkEffect.builder().withColor(Color.YELLOW).flicker(true).build());
+                        fw.setFireworkMeta(fwm);
+                        fw.detonate();
+
+                        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(Utils.chat(String.format("&e&lPicked up %s coins. You now have %s coins", amount, newAmount))));
                     }
                 }
             }

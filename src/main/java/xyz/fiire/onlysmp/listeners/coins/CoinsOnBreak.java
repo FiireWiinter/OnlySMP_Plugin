@@ -1,6 +1,8 @@
 package xyz.fiire.onlysmp.listeners.coins;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Color;
+import org.bukkit.Particle;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -31,6 +33,7 @@ public class CoinsOnBreak implements Listener {
             } else {
                 if (new Random().nextInt(10) == 5) { // 1 in 10 chance
                     b.getWorld().dropItemNaturally(b.getLocation(), Utils.createCoin(1));
+                    b.getWorld().spawnParticle(Particle.DUST_COLOR_TRANSITION, b.getLocation().add(0.5, 0.5, 0.5), 2, new Particle.DustTransition(Color.YELLOW, Color.YELLOW, 5));
                 }
             }
         }
