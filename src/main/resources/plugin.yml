@@ -11,3 +11,6 @@ commands:
   test:
     usage: You can't use this, this is limited to FiireWiinter
     description: FiireWiinter's Test Command
+  pay:
+    usage: /<command> <player> <amount> (this is custom)
+    description: Transfer a player x amount of coins

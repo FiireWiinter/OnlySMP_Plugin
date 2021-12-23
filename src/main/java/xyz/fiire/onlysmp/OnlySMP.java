@@ -2,6 +2,7 @@ package xyz.fiire.onlysmp;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import xyz.fiire.onlysmp.commands.PayCommand;
 import xyz.fiire.onlysmp.commands.TestCommand;
 import xyz.fiire.onlysmp.listeners.PlayerJoin;
 import xyz.fiire.onlysmp.listeners.coins.CoinsOnBreak;
@@ -25,6 +26,7 @@ public final class OnlySMP extends JavaPlugin {
 
         // Init Commands
         new TestCommand(this);
+        new PayCommand(this);
 
         // Init GUIs
         // tbi
