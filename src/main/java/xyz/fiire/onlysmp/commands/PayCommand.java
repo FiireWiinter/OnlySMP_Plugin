@@ -31,10 +31,9 @@ public class PayCommand implements TabExecutor {
                 sendingPlayer.sendMessage(Utils.chat("&c&lPlayer not found! Are they online?"));
                 return true;
             }
-            // add this back after testing
-            // if (sendingPlayer.getPlayer() == receivingPlayer.getPlayer()) {
-            //     sendingPlayer.sendMessage(Utils.chat("&c&lYou can't send money to yourself!"));
-            // }
+            if (sendingPlayer.getPlayer() == receivingPlayer.getPlayer()) {
+                sendingPlayer.sendMessage(Utils.chat("&c&lYou can't send money to yourself!"));
+            }
             Integer amount = Integer.parseInt(args[1]);
             Integer sendingPlayerCurrent = (Integer) SQLite.getUserValue("amount", sendingPlayer.getUniqueId().toString());
             Integer receivingPlayerCurrent = (Integer) SQLite.getUserValue("amount", receivingPlayer.getUniqueId().toString());
