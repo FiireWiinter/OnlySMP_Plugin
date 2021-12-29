@@ -116,7 +116,7 @@ public abstract class Database {
             ps = conn.prepareStatement(statement);
             rs = ps.executeQuery();
 
-            while(rs.next()) {
+            while (rs.next()) {
                 objects.add(rs.getObject(row));
             }
 
@@ -154,13 +154,13 @@ public abstract class Database {
             ps = conn.prepareStatement(statement);
             rs = ps.executeQuery();
 
-            while(rs.next()) {
+            while (rs.next()) {
                 String[] var11 = row;
                 int var10 = row.length;
 
                 String singleRow;
                 int var9;
-                for(var9 = 0; var9 < var10; ++var9) {
+                for (var9 = 0; var9 < var10; ++var9) {
                     singleRow = var11[var9];
                     objects.add(rs.getObject(singleRow));
                 }
@@ -168,7 +168,7 @@ public abstract class Database {
                 var11 = row;
                 var10 = row.length;
 
-                for(var9 = 0; var9 < var10; ++var9) {
+                for (var9 = 0; var9 < var10; ++var9) {
                     singleRow = var11[var9];
                     map.put(singleRow, objects);
                 }

@@ -1,17 +1,17 @@
 package xyz.fiire.onlysmp.utils.SQLiteLib;
 
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
 import xyz.fiire.onlysmp.OnlySMP;
 import xyz.fiire.onlysmp.utils.SQLiteLib.Database.Database;
 import xyz.fiire.onlysmp.utils.SQLiteLib.Database.SQLite;
-import org.bukkit.Bukkit;
-import org.bukkit.plugin.Plugin;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
     private static OnlySMP INSTANCE;
-    private Map<String, Database> databases = new HashMap();
+    private final Map<String, Database> databases = new HashMap();
 
     public Main(OnlySMP instance) {
         INSTANCE = instance;

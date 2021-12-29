@@ -97,7 +97,7 @@ public class Utils {
 
     // custom
     public static boolean isValidCoinBlock(Material mat) {
-        return  mat == Material.DIAMOND_ORE ||
+        return mat == Material.DIAMOND_ORE ||
                 mat == Material.DEEPSLATE_DIAMOND_ORE ||
                 mat == Material.EMERALD_ORE ||
                 mat == Material.DEEPSLATE_EMERALD_ORE ||

@@ -16,7 +16,7 @@ import java.util.Random;
 
 public class CoinsOnBreak implements Listener {
 
-    private OnlySMP plugin;
+    private final OnlySMP plugin;
 
     public CoinsOnBreak(OnlySMP plugin) {
         this.plugin = plugin;

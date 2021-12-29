@@ -1,9 +1,9 @@
 package xyz.fiire.onlysmp.utils;
 
+import org.bukkit.entity.Player;
+import xyz.fiire.onlysmp.OnlySMP;
 import xyz.fiire.onlysmp.utils.SQLiteLib.Database.Database;
 import xyz.fiire.onlysmp.utils.SQLiteLib.Main;
-import xyz.fiire.onlysmp.OnlySMP;
-import org.bukkit.entity.Player;
 
 import java.util.List;
 

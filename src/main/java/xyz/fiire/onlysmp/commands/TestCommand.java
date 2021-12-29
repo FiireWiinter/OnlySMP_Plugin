@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import xyz.fiire.onlysmp.OnlySMP;
 import xyz.fiire.onlysmp.utils.Config;
 import xyz.fiire.onlysmp.utils.NBTStorage;
+import xyz.fiire.onlysmp.utils.Utils;
 
 public class TestCommand implements CommandExecutor {
     public TestCommand(OnlySMP plugin) {
@@ -28,6 +29,9 @@ public class TestCommand implements CommandExecutor {
                     NBTStorage.setPlayerBool(p, "osmp_debug", !debug);
                     p.sendMessage("set debug to " + !debug);
                     break;
+                }
+                case "temp": {
+                    p.sendMessage(Utils.chat("&c&k&lI shall summon the holy lemon"));
                 }
             }
         }

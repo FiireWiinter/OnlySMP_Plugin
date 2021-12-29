@@ -16,7 +16,7 @@ import xyz.fiire.onlysmp.utils.Utils;
 
 public class CoinsOnPickup implements Listener {
 
-    private OnlySMP plugin;
+    private final OnlySMP plugin;
 
     public CoinsOnPickup(OnlySMP plugin) {
         this.plugin = plugin;
@@ -41,7 +41,7 @@ public class CoinsOnPickup implements Listener {
                         Player player = (Player) entity;
                         String playerUUID = player.getUniqueId().toString();
                         Integer currentNum = (Integer) SQLite.getUserValue("amount", playerUUID);
-                        int newAmount = currentNum+(amount*value);
+                        int newAmount = currentNum + (amount * value);
                         SQLite.setUserValue("amount", Integer.toString(newAmount), playerUUID);
                         String debugCurrentAmount = SQLite.getUserValue("amount", playerUUID).toString();
 

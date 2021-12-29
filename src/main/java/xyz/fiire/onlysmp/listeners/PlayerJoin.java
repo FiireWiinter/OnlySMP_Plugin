@@ -9,7 +9,7 @@ import xyz.fiire.onlysmp.utils.SQLite;
 
 public class PlayerJoin implements Listener {
 
-    private OnlySMP plugin;
+    private final OnlySMP plugin;
 
     public PlayerJoin(OnlySMP plugin) {
         this.plugin = plugin;

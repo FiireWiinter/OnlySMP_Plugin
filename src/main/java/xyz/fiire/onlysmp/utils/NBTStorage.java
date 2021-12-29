@@ -20,7 +20,9 @@ public class NBTStorage {
         return p.getPersistentDataContainer();
     }
 
-    public static PersistentDataContainer getItemStackPDC(ItemStack i) { return i.getItemMeta().getPersistentDataContainer(); }
+    public static PersistentDataContainer getItemStackPDC(ItemStack i) {
+        return i.getItemMeta().getPersistentDataContainer();
+    }
 
     // Get Functions Player
     public static String getPlayerString(Player p, String key) {
@@ -51,7 +53,11 @@ public class NBTStorage {
 
     public static void setPlayerBool(Player p, String key, Boolean val) {
         int num;
-        if (val) { num = 1; } else { num = 0; }
+        if (val) {
+            num = 1;
+        } else {
+            num = 0;
+        }
         getPlayerPDC(p).set(new NamespacedKey(plugin, key), PersistentDataType.INTEGER, num);
     }
 
@@ -78,7 +84,11 @@ public class NBTStorage {
 
     public static void setItemStackBool(ItemStack i, String key, Boolean val) {
         int num;
-        if (val) { num = 1; } else { num = 0; }
+        if (val) {
+            num = 1;
+        } else {
+            num = 0;
+        }
         ItemMeta meta = i.getItemMeta();
         meta.getPersistentDataContainer().set(new NamespacedKey(plugin, key), PersistentDataType.INTEGER, num);
         i.setItemMeta(meta);

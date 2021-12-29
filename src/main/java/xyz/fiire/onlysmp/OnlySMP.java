@@ -5,9 +5,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 import xyz.fiire.onlysmp.commands.PayCommand;
 import xyz.fiire.onlysmp.commands.TestCommand;
 import xyz.fiire.onlysmp.listeners.PlayerJoin;
+import xyz.fiire.onlysmp.listeners.coins.CoinsAdvancements;
 import xyz.fiire.onlysmp.listeners.coins.CoinsOnBreak;
 import xyz.fiire.onlysmp.listeners.coins.CoinsOnPickup;
 import xyz.fiire.onlysmp.listeners.coins.CoinsOnPlace;
+import xyz.fiire.onlysmp.listeners.quests.QuestAdvancements;
 import xyz.fiire.onlysmp.papi.PAPI;
 import xyz.fiire.onlysmp.utils.Config;
 import xyz.fiire.onlysmp.utils.NBTStorage;
@@ -36,6 +38,8 @@ public final class OnlySMP extends JavaPlugin {
         new CoinsOnBreak(this);
         new CoinsOnPlace(this);
         new CoinsOnPickup(this);
+        new CoinsAdvancements(this);
+        new QuestAdvancements(this);
 
         // Init PAPI
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {

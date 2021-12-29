@@ -12,10 +12,10 @@ import java.sql.Statement;
 import java.util.logging.Level;
 
 public class SQLite extends Database {
-    private String dbname;
-    private String createTestTable = "CREATE TABLE IF NOT EXISTS test (`test` varchar(32) NOT NULL,PRIMARY KEY (`test`));";
-    private String customCreateString;
-    private File dataFolder;
+    private final String dbname;
+    private final String createTestTable = "CREATE TABLE IF NOT EXISTS test (`test` varchar(32) NOT NULL,PRIMARY KEY (`test`));";
+    private final String customCreateString;
+    private final File dataFolder;
 
     public SQLite(String databaseName, String createStatement, File folder) {
         this.dbname = databaseName;

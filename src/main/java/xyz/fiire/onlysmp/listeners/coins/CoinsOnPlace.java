@@ -12,7 +12,7 @@ import xyz.fiire.onlysmp.utils.Utils;
 
 public class CoinsOnPlace implements Listener {
 
-    private OnlySMP plugin;
+    private final OnlySMP plugin;
 
     public CoinsOnPlace(OnlySMP plugin) {
         this.plugin = plugin;
