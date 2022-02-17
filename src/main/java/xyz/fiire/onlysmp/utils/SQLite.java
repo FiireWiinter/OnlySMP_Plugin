@@ -18,6 +18,7 @@ public class SQLite {
         sqlLib.initializeDatabase(plugin, "db", "CREATE TABLE IF NOT EXISTS users (`uuid` string NOT NULL, `name` string NOT NULL, `amount` string NOT NULL, PRIMARY KEY (`uuid`));");
         db = sqlLib.getDatabase("db");
         db.executeStatement("CREATE TABLE IF NOT EXISTS blocks (`loc` string NOT NULL, PRIMARY KEY (`loc`));");
+        db.executeStatement("CREATE TABLE IF NOT EXISTS values (`key` string NOT NULL, `val` string NOT NULL, PRIMARY KEY (`key`));");
         // db.executeStatement("INSERT OR IGNORE INTO kenny (uuid, name, event) VALUES ('0', 'stopped', '-');");
     }
 
@@ -36,7 +37,7 @@ public class SQLite {
         db.executeStatement(String.format("INSERT OR IGNORE INTO users (uuid, name, amount) VALUES ('%s', '%s', '0');", uuid, name));
     }
 
-    public static List<Object> getAllValueByOrder(String order, String value) {
+    public static List<Object> getAllPlayersByOrder(String order, String value) {
         return db.queryRow(String.format("SELECT * FROM users ORDER BY %s DESC", order), value);
     }
 
@@ -50,6 +51,19 @@ public class SQLite {
 
     public static boolean getLocExist(String loc) {
         Object val = db.queryValue(String.format("SELECT * FROM blocks WHERE loc='%s'", loc), "loc");
+        return val != null;
+    }
+
+    public static void setVal(String key, String val) {
+        db.executeStatement(String.format("INSERT OR IGNORE INTO values (key, val) VALUES ('%s', '%s');", key, val));
+    }
+
+    public static void delVal(String key) {
+        db.executeStatement(String.format("DELETE FROM values WHERE key='%s';", key));
+    }
+
+    public static boolean getValKeyExist(String key) {
+        Object val = db.queryValue(String.format("SELECT * FROM values WHERE key='%s'", key), "key");
         return val != null;
     }
 

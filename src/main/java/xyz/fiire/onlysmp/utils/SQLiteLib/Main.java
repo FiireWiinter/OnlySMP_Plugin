@@ -21,16 +21,6 @@ public class Main {
         return INSTANCE;
     }
 
-    public static Main hookSQLiteLib(Plugin hostPlugin) {
-        Main plugin = (Main) Bukkit.getPluginManager().getPlugin("SQLiteLib");
-        if (plugin == null) {
-            Bukkit.getLogger().severe("SQLiteLib is not yet ready! You have called hookSQLiteLib() too early.");
-            return null;
-        } else {
-            return plugin;
-        }
-    }
-
     public void initializeDatabase(Plugin plugin, String databaseName, String createStatement) {
         Database db = new SQLite(databaseName, createStatement, plugin.getDataFolder());
         db.load();

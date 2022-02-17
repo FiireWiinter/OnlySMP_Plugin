@@ -4,7 +4,7 @@ import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import xyz.fiire.onlysmp.OnlySMP;
-import xyz.fiire.onlysmp.utils.PointUtils;
+import xyz.fiire.onlysmp.utils.QuestUtils;
 
 public class PAPI extends PlaceholderExpansion {
     private static OnlySMP plugin;
@@ -36,7 +36,7 @@ public class PAPI extends PlaceholderExpansion {
     @Override
     public String onRequest(OfflinePlayer player, String args) {
         if (args.equalsIgnoreCase("coinsAmountPlayer")) {
-            return PointUtils.getCoinsAmountPlayer((Player) player);
+            return QuestUtils.getCoinsAmountPlayer((Player) player);
         } else if (args.equalsIgnoreCase("test2")) {
             return "test2";
         } // and so on
