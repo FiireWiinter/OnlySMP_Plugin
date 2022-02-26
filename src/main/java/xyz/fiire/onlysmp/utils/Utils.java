@@ -1,5 +1,7 @@
 package xyz.fiire.onlysmp.utils;
 
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -52,7 +54,7 @@ public class Utils {
     public static void debug(String msg) {
         Player p = Bukkit.getPlayer(UUID.fromString("a9085607-f473-45f1-90ec-7ad71d697853")); // FiireWiinter
         if (p != null) {
-            if (NBTStorage.getPlayerBool(p, "osmp_debug")) p.sendMessage(Utils.chat(msg));
+            if (NBTStorage.getPlayerBool(p, "osmp_debug")) p.sendMessage(Utils.chat("&f&l[&b&lDEBUG&f&l] &r" + msg));
         }
     }
 
@@ -95,6 +97,11 @@ public class Utils {
         player.sendTitle(chat(title), chat(subtitle), fadeInSecs * 20, staySecs * 20, fadeOutSecs * 20);
     }
 
+    // Send a action bar message to a player
+    public static void actionMessage(Player p, String message) {
+        p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(Utils.chat(message)));
+    }
+
     // custom
     public static boolean isValidCoinBlock(Material mat) {
         return mat == Material.DIAMOND_ORE ||
@@ -109,6 +116,7 @@ public class Utils {
         ItemMeta meta = item.getItemMeta();
         meta.setCustomModelData(10);
         meta.setDisplayName(chat("&e&lCoin"));
+        meta.setLore(Collections.singletonList(Utils.chat(String.format("&e&lValue: %s", value))));
         item.setItemMeta(meta);
         NBTStorage.setItemStackInt(item, "osmp_coin_value", value);
         NBTStorage.setItemStackBool(item, "osmp_coin_pickup", true);
