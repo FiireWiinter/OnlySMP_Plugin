@@ -6,6 +6,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import xyz.fiire.onlysmp.OnlySMP;
+import xyz.fiire.onlysmp.utils.QuestUtils;
 import xyz.fiire.onlysmp.utils.Utils;
 
 public class QuestOnDeath implements Listener {
@@ -21,8 +22,9 @@ public class QuestOnDeath implements Listener {
     public void onDeath(PlayerDeathEvent e) {
         Player p = e.getEntity();
         String text = e.getDeathMessage();
+        assert text != null;
         if (text.contains("fell from a high place")) {
-            Utils.debug(String.format("detected death by fall damage from %s", p.getName()));
+            QuestUtils.finishQuest(p, 10, "death-height");
         }
     }
 }
