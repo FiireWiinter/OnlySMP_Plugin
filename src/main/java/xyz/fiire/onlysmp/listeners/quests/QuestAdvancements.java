@@ -7,7 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerAdvancementDoneEvent;
 import xyz.fiire.onlysmp.OnlySMP;
-import xyz.fiire.onlysmp.utils.SQLite;
+import xyz.fiire.onlysmp.utils.QuestUtils;
 import xyz.fiire.onlysmp.utils.Utils;
 
 public class QuestAdvancements implements Listener {
@@ -20,13 +20,6 @@ public class QuestAdvancements implements Listener {
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
 
-    private static void addCoins(Player p, Integer amount) {
-        Integer current = (Integer) SQLite.getUserValue("amount", p.getUniqueId().toString());
-        int newAmount = current + amount;
-        SQLite.setUserValue("amount", Integer.toString(newAmount), p.getUniqueId().toString());
-        p.sendMessage(Utils.chat(String.format("&e&lYou just got %s coins for completing a quest!", amount)));
-    }
-
     @EventHandler
     public void onAdvancement(PlayerAdvancementDoneEvent e) {
         Advancement advancement = e.getAdvancement();
@@ -35,10 +28,10 @@ public class QuestAdvancements implements Listener {
         Utils.debug(advancement.getKey().toString());
         switch (key) {
             case "minecraft:adventure/hero_of_the_village":
-                addCoins(p, 20);
+                QuestUtils.finishQuest(p, 20, "complete-raid");
                 break;
             case "minecraft:story/enchant_item":
-                addCoins(p, 10);
+                QuestUtils.finishQuest(p, 10, "enchant-item");
                 break;
             default:
                 break;
