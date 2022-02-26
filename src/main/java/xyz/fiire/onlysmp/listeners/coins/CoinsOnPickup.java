@@ -43,7 +43,6 @@ public class CoinsOnPickup implements Listener {
                         Integer currentNum = (Integer) SQLite.getUserValue("amount", playerUUID);
                         int newAmount = currentNum + (amount * value);
                         SQLite.setUserValue("amount", Integer.toString(newAmount), playerUUID);
-                        String debugCurrentAmount = SQLite.getUserValue("amount", playerUUID).toString();
 
                         Location loc = e.getEntity().getLocation().add(0, 0.5, 0);
                         Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
@@ -53,7 +52,11 @@ public class CoinsOnPickup implements Listener {
                         fw.setFireworkMeta(fwm);
                         fw.detonate();
 
-                        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(Utils.chat(String.format("&e&lPicked up %s coins. You now have %s coins", amount, newAmount))));
+                        String valueText = "";
+                        if (value != 1) {
+                            valueText = String.format(" with a coin value of %s", value);
+                        }
+                        Utils.actionMessage(player, String.format("&e&lPicked up %s coins%s. You now have %s coins", amount, valueText, newAmount));
                     }
                 }
             }
