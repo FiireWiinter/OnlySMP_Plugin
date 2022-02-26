@@ -6,6 +6,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 import xyz.fiire.onlysmp.OnlySMP;
+import xyz.fiire.onlysmp.utils.QuestUtils;
 import xyz.fiire.onlysmp.utils.SQLite;
 import xyz.fiire.onlysmp.utils.Utils;
 
@@ -53,6 +54,9 @@ public class PayCommand implements TabExecutor {
             SQLite.setUserValue("amount", receivingPlayerCurrent.toString(), receivingPlayer.getUniqueId().toString());
             sendingPlayer.sendMessage(Utils.chat(String.format("&a&lYou just sent %s coins to %s", amount, receivingPlayer.getDisplayName())));
             receivingPlayer.sendMessage(Utils.chat(String.format("&e&lYou just received %s coins from %s", amount, sendingPlayer.getDisplayName())));
+
+            // Complete /pay quest
+            if (!QuestUtils.isPlayerQuestCompleted(sendingPlayer, "command-pay")) QuestUtils.finishQuest(sendingPlayer, 5, "command-pay");
             return true;
         } else {
             return false;

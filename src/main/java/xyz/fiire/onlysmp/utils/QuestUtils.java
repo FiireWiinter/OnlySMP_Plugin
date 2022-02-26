@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.persistence.PersistentDataType;
 import xyz.fiire.onlysmp.OnlySMP;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,11 +26,13 @@ public class QuestUtils {
         Integer current = (Integer) SQLite.getUserValue("amount", p.getUniqueId().toString());
         int newAmount = current + coinAmount;
         SQLite.setUserValue("amount", Integer.toString(newAmount), p.getUniqueId().toString());
+        addPlayerQuest(p, questKey);
         p.sendMessage(Utils.chat(String.format("&e&lYou just got %s coins for completing a quest!", coinAmount)));
     }
 
-    private static List<String> getPlayerQuests(Player p) {
+    public static List<String> getPlayerQuests(Player p) {
         String list = NBTStorage.getPlayerPDC(p).get(new NamespacedKey(plugin, "osmp_quests"), PersistentDataType.STRING);
+        if (list == null) { list = ""; }
         return Arrays.asList(list.split("##"));
     }
 
@@ -40,8 +43,9 @@ public class QuestUtils {
 
     private static void addPlayerQuest(Player p, String questKey) {
         List<String> list = getPlayerQuests(p);
-        list.add(questKey);
-        savePlayerQuests(p, list);
+        List<String> newList = new ArrayList<>(list);
+        newList.add(questKey);
+        savePlayerQuests(p, newList);
     }
 
     public static boolean isPlayerQuestCompleted(Player p, String questKey) {
