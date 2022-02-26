@@ -14,7 +14,7 @@
 - [ ] First to Find Diamonds! [50 coins] A
 - [ ] First to make a Netherite Ingot [50 coins]
 - [ ] (Kill ___ (randomised player) [20 coins])
-- [ ] Play a Music Disk [30 coins]
+- [X] Play a Music Disk [30 coins] [play-disc]
 - [ ] (Give another Player a Flower [10 coins])
 - [ ] Mine 2,000 blocks [10 coins]
 - [X] Die to fall damage [10 coins] [death-height]

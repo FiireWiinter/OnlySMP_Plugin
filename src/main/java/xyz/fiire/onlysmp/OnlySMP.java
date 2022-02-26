@@ -12,6 +12,7 @@ import xyz.fiire.onlysmp.listeners.coins.CoinsOnPickup;
 import xyz.fiire.onlysmp.listeners.coins.CoinsOnPlace;
 import xyz.fiire.onlysmp.listeners.quests.QuestAdvancements;
 import xyz.fiire.onlysmp.listeners.quests.QuestOnDeath;
+import xyz.fiire.onlysmp.listeners.quests.QuestOnInteract;
 import xyz.fiire.onlysmp.listeners.quests.QuestOnKill;
 import xyz.fiire.onlysmp.papi.PAPI;
 import xyz.fiire.onlysmp.utils.*;
@@ -44,6 +45,7 @@ public final class OnlySMP extends JavaPlugin {
         new QuestAdvancements(this);
         new QuestOnDeath(this);
         new QuestOnKill(this);
+        new QuestOnInteract(this);
 
         // Init PAPI
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
