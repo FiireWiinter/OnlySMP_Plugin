@@ -18,7 +18,7 @@ public class SQLite {
         sqlLib.initializeDatabase(plugin, "db", "CREATE TABLE IF NOT EXISTS users (`uuid` string NOT NULL, `name` string NOT NULL, `amount` string NOT NULL, PRIMARY KEY (`uuid`));");
         db = sqlLib.getDatabase("db");
         db.executeStatement("CREATE TABLE IF NOT EXISTS blocks (`loc` string NOT NULL, PRIMARY KEY (`loc`));");
-        db.executeStatement("CREATE TABLE IF NOT EXISTS values (`key` string NOT NULL, `val` string NOT NULL, PRIMARY KEY (`key`));");
+        db.executeStatement("CREATE TABLE IF NOT EXISTS `values` (`key` string NOT NULL, `val` string NOT NULL, PRIMARY KEY (`key`));");
         // db.executeStatement("INSERT OR IGNORE INTO kenny (uuid, name, event) VALUES ('0', 'stopped', '-');");
     }
 
