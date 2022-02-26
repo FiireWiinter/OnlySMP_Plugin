@@ -8,7 +8,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerAdvancementDoneEvent;
 import xyz.fiire.onlysmp.OnlySMP;
 import xyz.fiire.onlysmp.utils.QuestUtils;
-import xyz.fiire.onlysmp.utils.Utils;
 
 public class QuestAdvancements implements Listener {
 
