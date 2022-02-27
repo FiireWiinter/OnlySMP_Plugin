@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'de.nilsdruyen.gradle-ftp-upload-plugin' version '0.0.2'
 }
 
 group = 'xyz.fiire'
@@ -49,4 +50,13 @@ processResources {
     filesMatching('plugin.yml') {
         expand props
     }
+}
+
+ftpUploadExtension {
+    host = findProperty("ftp_host")
+    port = findProperty("ftp_port") as Integer
+    username = findProperty("ftp_username")
+    password = findProperty("ftp_password")
+    sourceDir = "${project.buildDir}/libs"
+    targetDir = "/plugins/"
 }
