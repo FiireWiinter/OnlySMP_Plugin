@@ -12,7 +12,6 @@ public class TeaCommand implements CommandExecutor {
         plugin.getCommand("tea").setExecutor(this);
     }
 
-
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String alias, String[] args) {
         if (!(sender instanceof Player)) {
