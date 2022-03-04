@@ -14,6 +14,12 @@ commands:
   pay:
     usage: /<command> <player> <amount>
     description: Transfer a player x amount of coins
+  withdraw:
+    usage: /<command> <total_amount> <coin_value>
+    description: Withdraw a specific amount of coins
+  deposit:
+    usage: /<command>
+    description: Deposit the coins in your hands
   tea:
     usage: /<command>
     description: Fuck you Tea

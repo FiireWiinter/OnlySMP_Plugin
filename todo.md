@@ -1,14 +1,14 @@
 ## Things I still have to do
 
 - [ ] Add quests **_(IN WORK)_**
-- [x] Track quests
-  - [x] Player NBTContainer Array of Strings of completed quest keys
+- [X] Track quests
+  - [X] Player NBTContainer Array of Strings of completed quest keys
   - [ ] Add a list of quest keys somewhere for /quests (maybe hardcodable in quest tracker)
 - [ ] /quests (gui)
   - [ ] Should list all possible quests
   - [ ] Finished quests are "enchanted"
 - [ ] /withdraw <amount>
-- [ ] /deposit (coin held in hand)
+- [X] /deposit (coin held in hand)
 
 ## Quests
 - [ ] First to Find Diamonds! [50 coins] A
@@ -18,7 +18,7 @@
 - [ ] (Give another Player a Flower [10 coins])
 - [ ] Mine 2,000 blocks [10 coins]
 - [X] Die to fall damage [10 coins] [death-height]
-- [ ] Withdraw 50 coins from balance [10 coins] C
+- [ ] Withdraw 50 coins from balance [10 coins] C [command-withdraw]
 - [X] Use the /pay command to transfer coins to another player [5 coins] C [command-pay]
 - [ ] (Burn 10 coins to double it [20 coins])
 - [X] Defeat the Wither [40 coins] [kill-wither]
