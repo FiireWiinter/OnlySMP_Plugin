@@ -4,7 +4,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.fiire.onlysmp.commands.*;
 import xyz.fiire.onlysmp.listeners.PlayerJoin;
-import xyz.fiire.onlysmp.listeners.coins.CoinsAdvancements;
 import xyz.fiire.onlysmp.listeners.coins.CoinsOnBreak;
 import xyz.fiire.onlysmp.listeners.coins.CoinsOnPickup;
 import xyz.fiire.onlysmp.listeners.coins.CoinsOnPlace;
@@ -43,7 +42,6 @@ public final class OnlySMP extends JavaPlugin {
         new CoinsOnBreak(this);
         new CoinsOnPlace(this);
         new CoinsOnPickup(this);
-        new CoinsAdvancements(this);
         new QuestAdvancements(this);
         new QuestOnDeath(this);
         new QuestOnKill(this);
