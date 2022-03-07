@@ -6,9 +6,11 @@ import org.bukkit.*;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
+import org.bukkit.metadata.FixedMetadataValue;
 import xyz.fiire.onlysmp.OnlySMP;
 import xyz.fiire.onlysmp.utils.NBTStorage;
 import xyz.fiire.onlysmp.utils.SQLite;
@@ -50,6 +52,7 @@ public class CoinsOnPickup implements Listener {
                         fwm.setPower(2);
                         fwm.addEffect(FireworkEffect.builder().withColor(Color.YELLOW).flicker(true).build());
                         fw.setFireworkMeta(fwm);
+                        fw.setMetadata("nodamage", new FixedMetadataValue(plugin, true));
                         fw.detonate();
 
                         String valueText = "";
@@ -59,6 +62,16 @@ public class CoinsOnPickup implements Listener {
                         Utils.actionMessage(player, String.format("&e&lPicked up %s coins%s. You now have %s coins", amount, valueText, newAmount));
                     }
                 }
+            }
+        }
+    }
+
+    @EventHandler
+    public void onDamage(EntityDamageByEntityEvent e) {
+        if (e.getDamager() instanceof Firework) {
+            Firework fw = (Firework) e.getDamager();
+            if (fw.hasMetadata("nodamage")) {
+                e.setCancelled(true);
             }
         }
     }
