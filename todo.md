@@ -18,7 +18,7 @@
 - [ ] (Give another Player a Flower [10 coins])
 - [ ] Mine 2,000 blocks [10 coins]
 - [X] Die to fall damage [10 coins] [death-height]
-- [ ] Withdraw 50 coins from balance [10 coins] C [command-withdraw]
+- [X] Withdraw 50 coins from balance [10 coins] C [command-withdraw]
 - [X] Use the /pay command to transfer coins to another player [5 coins] C [command-pay]
 - [ ] (Burn 10 coins to double it [20 coins])
 - [X] Defeat the Wither [40 coins] [kill-wither]

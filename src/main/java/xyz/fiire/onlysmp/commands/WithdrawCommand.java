@@ -47,6 +47,8 @@ public class WithdrawCommand implements TabExecutor {
         NBTStorage.setItemStackBool(item, "osmp_coin_pickup", false);
         p.getWorld().dropItemNaturally(p.getLocation(), item);
 
+        // Complete /withdraw 50 quest
+        if (!QuestUtils.isPlayerQuestCompleted(p, "command-withdraw") && amount >= 50) QuestUtils.finishQuest(p, 10, "command-withdraw");
         return true;
     }
 
