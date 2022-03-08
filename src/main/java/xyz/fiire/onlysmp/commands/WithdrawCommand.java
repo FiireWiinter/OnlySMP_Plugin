@@ -4,7 +4,11 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import xyz.fiire.onlysmp.OnlySMP;
+import xyz.fiire.onlysmp.utils.NBTStorage;
+import xyz.fiire.onlysmp.utils.QuestUtils;
+import xyz.fiire.onlysmp.utils.SQLite;
 import xyz.fiire.onlysmp.utils.Utils;
 
 import java.util.Collections;
@@ -21,7 +25,28 @@ public class WithdrawCommand implements TabExecutor {
             sender.sendMessage("This command can not be ran through Console");
             return true;
         }
-        sender.sendMessage(Utils.chat("&c&lTBI"));
+        if (args.length != 1) return false;
+
+        Player p = (Player) sender;
+        int amount;
+        try {
+            amount = Integer.parseInt(args[0]);
+        } catch (NumberFormatException e) {
+            p.sendMessage(Utils.chat("&c&lPlease specify a valid number!"));
+            return true;
+        }
+        int coins = Integer.parseInt(QuestUtils.getCoinsAmountPlayer(p));
+        if (coins - amount < 0) {
+            p.sendMessage(Utils.chat("&c&lYou don't have that kind of money!"));
+            return true;
+        }
+        SQLite.setUserValue("amount", Integer.toString(coins-amount), p.getUniqueId().toString());
+
+        ItemStack item = Utils.createCoin(1);
+        item.setAmount(amount);
+        NBTStorage.setItemStackBool(item, "osmp_coin_pickup", false);
+        p.getWorld().dropItemNaturally(p.getLocation(), item);
+
         return true;
     }
 

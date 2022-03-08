@@ -18,6 +18,7 @@ import java.util.UUID;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
 
+@SuppressWarnings({"unchecked", "deprecation"})
 public class Utils {
     private static OnlySMP plugin;
 
@@ -97,7 +98,7 @@ public class Utils {
         player.sendTitle(chat(title), chat(subtitle), fadeInSecs * 20, staySecs * 20, fadeOutSecs * 20);
     }
 
-    // Send a action bar message to a player
+    // Send an action bar message to a player
     public static void actionMessage(Player p, String message) {
         p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(Utils.chat(message)));
     }
@@ -116,7 +117,9 @@ public class Utils {
         ItemMeta meta = item.getItemMeta();
         meta.setCustomModelData(10);
         meta.setDisplayName(chat("&e&lCoin"));
-        meta.setLore(Collections.singletonList(Utils.chat(String.format("&e&lValue: %s", value))));
+        if (value > 1) {
+            meta.setLore(Collections.singletonList(Utils.chat(String.format("&e&l1 Coin Value: %s", value))));
+        }
         item.setItemMeta(meta);
         NBTStorage.setItemStackInt(item, "osmp_coin_value", value);
         NBTStorage.setItemStackBool(item, "osmp_coin_pickup", true);

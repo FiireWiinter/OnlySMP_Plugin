@@ -7,7 +7,7 @@
 - [ ] /quests (gui)
   - [ ] Should list all possible quests
   - [ ] Finished quests are "enchanted"
-- [ ] /withdraw <amount>
+- [X] /withdraw <amount>
 - [X] /deposit (coin held in hand)
 
 ## Quests

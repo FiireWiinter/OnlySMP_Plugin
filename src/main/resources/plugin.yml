@@ -15,7 +15,7 @@ commands:
     usage: /<command> <player> <amount>
     description: Transfer a player x amount of coins
   withdraw:
-    usage: /<command> <total_amount> <coin_value>
+    usage: /<command> <amount>
     description: Withdraw a specific amount of coins
   deposit:
     usage: /<command>
