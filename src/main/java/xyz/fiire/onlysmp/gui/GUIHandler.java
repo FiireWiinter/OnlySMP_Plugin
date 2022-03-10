@@ -25,6 +25,6 @@ public class GUIHandler implements Listener {
             e.setCancelled(true);
             if (e.getCurrentItem() == null) return;
             QuestGUI.clicked((Player) e.getWhoClicked(), e.getSlot(), e.getCurrentItem(), e.getInventory());
-        }
+        } // add more with else if statements
     }
 }
