@@ -37,7 +37,7 @@ public class QuestUtils {
         int newAmount = current + Integer.parseInt(res.get(3));
         SQLite.setUserValue("amount", Integer.toString(newAmount), p.getUniqueId().toString());
         addPlayerQuest(p, questKey);
-        p.sendMessage(Utils.chat(String.format("&f&l[&b&lQuests&f&l] &eYou got %s coins for completing &f[&a%s&f]", res.get(3), res.get(0))));
+        p.sendMessage(Utils.chat(String.format("&f&l[&b&lQuests&f&l] &eYou got &6%s coins&e for completing &f[&a%s&f]", res.get(3), res.get(0))));
     }
 
     public static List<String> getQuestDetails(String questKey) {
