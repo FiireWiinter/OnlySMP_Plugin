@@ -20,18 +20,18 @@ public class QuestOnInteract implements Listener {
     }
 
     private boolean isDisc(Material mat) {
-        return  mat == Material.MUSIC_DISC_13 ||
-                mat == Material.MUSIC_DISC_CAT ||
-                mat == Material.MUSIC_DISC_BLOCKS ||
-                mat == Material.MUSIC_DISC_CHIRP ||
-                mat == Material.MUSIC_DISC_FAR ||
-                mat == Material.MUSIC_DISC_MALL ||
-                mat == Material.MUSIC_DISC_MELLOHI ||
-                mat == Material.MUSIC_DISC_STAL ||
-                mat == Material.MUSIC_DISC_STRAD ||
-                mat == Material.MUSIC_DISC_WARD ||
-                mat == Material.MUSIC_DISC_11 ||
-                mat == Material.MUSIC_DISC_WAIT ||
+        return  mat == Material.MUSIC_DISC_13        ||
+                mat == Material.MUSIC_DISC_CAT       ||
+                mat == Material.MUSIC_DISC_BLOCKS    ||
+                mat == Material.MUSIC_DISC_CHIRP     ||
+                mat == Material.MUSIC_DISC_FAR       ||
+                mat == Material.MUSIC_DISC_MALL      ||
+                mat == Material.MUSIC_DISC_MELLOHI   ||
+                mat == Material.MUSIC_DISC_STAL      ||
+                mat == Material.MUSIC_DISC_STRAD     ||
+                mat == Material.MUSIC_DISC_WARD      ||
+                mat == Material.MUSIC_DISC_11        ||
+                mat == Material.MUSIC_DISC_WAIT      ||
                 mat == Material.MUSIC_DISC_OTHERSIDE ||
                 mat == Material.MUSIC_DISC_PIGSTEP;
     }
@@ -43,7 +43,7 @@ public class QuestOnInteract implements Listener {
             Block block = e.getClickedBlock();
             if (block.getType() == Material.JUKEBOX) {
                 if (isDisc(e.getItem().getType())) {
-                    QuestUtils.finishQuest(e.getPlayer(), 30, "play-disc");
+                    QuestUtils.finishQuest(e.getPlayer(), "play-disc");
                 }
             }
         }

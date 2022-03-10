@@ -1,1 +1,41 @@
 # This file legit has the only purpose of being in here, so I can avoid File Errors lmao
+list_of_player:
+  - FiireWiinter
+  - FiireUwU
+  - GP1210
+quests:
+  play-disc:
+    title: Let's jam together
+    description: Play a music disc
+    item: music_disc_otherside
+    amount: 30
+  death-height:
+    title: That was high
+    description: Die from fall damage
+    item: feather
+    amount: 10
+  command-withdraw:
+    title: You're kinda rich
+    description: Withdraw 50 coins
+    item: COIN
+    amount: 10
+  command-pay:
+    title: That's generous of you
+    description: Pay someone some coins
+    item: COIN
+    amount: 5
+  kill-wither:
+    title: You killed it
+    description: Defeat a wither
+    item: wither_skeleton_skull
+    amount: 40
+  complete-raid:
+    title: You're a hero
+    description: You saved a village from a raid
+    item: totem_of_undying
+    amount: 20
+  enchant-item:
+    title: This is magic
+    description: Enchant an item
+    item: book
+    amount: 10

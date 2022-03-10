@@ -21,13 +21,34 @@ public class QuestUtils {
         return SQLite.getUserValue("amount", p.getUniqueId().toString()).toString();
     }
 
-    public static void finishQuest(Player p, Integer coinAmount, String questKey) {
+    /*public static void finishQuest(Player p, Integer coinAmount, String questKey) {
         if (isPlayerQuestCompleted(p, questKey)) return;
         Integer current = (Integer) SQLite.getUserValue("amount", p.getUniqueId().toString());
         int newAmount = current + coinAmount;
         SQLite.setUserValue("amount", Integer.toString(newAmount), p.getUniqueId().toString());
         addPlayerQuest(p, questKey);
         p.sendMessage(Utils.chat(String.format("&e&lYou just got %s coins for completing a quest!", coinAmount)));
+    }*/
+
+    public static void finishQuest(Player p, String questKey) {
+        if (isPlayerQuestCompleted(p, questKey)) return;
+        List<String> res = getQuestDetails(questKey);
+        Integer current = (Integer) SQLite.getUserValue("amount", p.getUniqueId().toString());
+        int newAmount = current + Integer.parseInt(res.get(3));
+        SQLite.setUserValue("amount", Integer.toString(newAmount), p.getUniqueId().toString());
+        addPlayerQuest(p, questKey);
+        p.sendMessage(Utils.chat(String.format("&f&l[&b&lQuests&f&l] &eYou got %s coins for completing &f[&a%s&f]", res.get(3), res.get(0))));
+    }
+
+    public static List<String> getQuestDetails(String questKey) {
+        questKey = String.format("quests.%s.", questKey);
+        List<String> res = new ArrayList<>();
+        res.add(Config.get_str(questKey + "title"));
+        res.add(Config.get_str(questKey + "description"));
+        res.add(Config.get_str(questKey + "item"));
+        res.add(Config.get_str(questKey + "amount"));
+
+        return res;
     }
 
     public static List<String> getPlayerQuests(Player p) {

@@ -56,7 +56,7 @@ public class PayCommand implements TabExecutor {
             receivingPlayer.sendMessage(Utils.chat(String.format("&e&lYou just received %s coins from %s", amount, sendingPlayer.getDisplayName())));
 
             // Complete /pay quest
-            if (!QuestUtils.isPlayerQuestCompleted(sendingPlayer, "command-pay")) QuestUtils.finishQuest(sendingPlayer, 5, "command-pay");
+            if (!QuestUtils.isPlayerQuestCompleted(sendingPlayer, "command-pay")) QuestUtils.finishQuest(sendingPlayer, "command-pay");
             return true;
         } else {
             return false;

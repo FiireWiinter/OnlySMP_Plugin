@@ -24,7 +24,7 @@ public class QuestOnDeath implements Listener {
         String text = e.getDeathMessage();
         assert text != null;
         if (text.contains("fell from a high place")) {
-            QuestUtils.finishQuest(p, 10, "death-height");
+            QuestUtils.finishQuest(p, "death-height");
         }
     }
 }

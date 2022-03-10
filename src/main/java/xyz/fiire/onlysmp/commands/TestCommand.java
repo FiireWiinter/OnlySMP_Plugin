@@ -58,13 +58,16 @@ public class TestCommand implements TabExecutor {
                     p.sendMessage("reseted :)");
                     break;
                 }
+                case "testQuest": {
+                    QuestUtils.finishQuest(p, args[1]);
+                }
             }
         }
         return true;
     }
 
     // Tab Completion
-    private static final List<String> tabSelection = Arrays.asList("config", "debug", "temp", "giveCoin", "checkQuest", "resetQuest");
+    private static final List<String> tabSelection = Arrays.asList("config", "debug", "temp", "giveCoin", "checkQuest", "resetQuest", "testQuest");
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {

@@ -26,10 +26,10 @@ public class QuestAdvancements implements Listener {
         String key = advancement.getKey().toString();
         switch (key) {
             case "minecraft:adventure/hero_of_the_village":
-                QuestUtils.finishQuest(p, 20, "complete-raid");
+                QuestUtils.finishQuest(p, "complete-raid");
                 break;
             case "minecraft:story/enchant_item":
-                QuestUtils.finishQuest(p, 10, "enchant-item");
+                QuestUtils.finishQuest(p, "enchant-item");
                 break;
             default:
                 break;

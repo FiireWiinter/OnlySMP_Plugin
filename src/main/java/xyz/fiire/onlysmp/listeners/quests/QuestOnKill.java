@@ -27,7 +27,7 @@ public class QuestOnKill implements Listener {
         Utils.debug("Death of " + entity.getName() + " by " + killer.getName());
         switch (entity.getName()) {
             case "Wither": {
-                QuestUtils.finishQuest(killer, 40, "kill-wither");
+                QuestUtils.finishQuest(killer, "kill-wither");
                 break;
             }
         }

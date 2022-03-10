@@ -48,7 +48,7 @@ public class WithdrawCommand implements TabExecutor {
         p.getWorld().dropItemNaturally(p.getLocation(), item);
 
         // Complete /withdraw 50 quest
-        if (!QuestUtils.isPlayerQuestCompleted(p, "command-withdraw") && amount >= 50) QuestUtils.finishQuest(p, 10, "command-withdraw");
+        if (!QuestUtils.isPlayerQuestCompleted(p, "command-withdraw") && amount >= 50) QuestUtils.finishQuest(p, "command-withdraw");
         return true;
     }
 
