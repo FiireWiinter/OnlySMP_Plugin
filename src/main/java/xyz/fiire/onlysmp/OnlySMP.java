@@ -3,6 +3,8 @@ package xyz.fiire.onlysmp;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import xyz.fiire.onlysmp.commands.*;
+import xyz.fiire.onlysmp.gui.GUIHandler;
+import xyz.fiire.onlysmp.gui.QuestGUI;
 import xyz.fiire.onlysmp.listeners.PlayerJoin;
 import xyz.fiire.onlysmp.listeners.coins.CoinsOnBreak;
 import xyz.fiire.onlysmp.listeners.coins.CoinsOnPickup;
@@ -30,14 +32,16 @@ public final class OnlySMP extends JavaPlugin {
         new PayCommand(this);
         new DepositCommand(this);
         new WithdrawCommand(this);
+        new QuestCommand(this);
 
         // Fuck you Tea
         new TeaCommand(this);
 
         // Init GUIs
-        // tbi
+        new QuestGUI(this);
 
         // Init Listeners
+        new GUIHandler(this);
         new PlayerJoin(this);
         new CoinsOnBreak(this);
         new CoinsOnPlace(this);

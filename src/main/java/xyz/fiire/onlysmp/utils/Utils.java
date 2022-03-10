@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
 import xyz.fiire.onlysmp.OnlySMP;
 
 import java.util.ArrayList;
@@ -124,5 +125,18 @@ public class Utils {
         NBTStorage.setItemStackInt(item, "osmp_coin_value", value);
         NBTStorage.setItemStackBool(item, "osmp_coin_pickup", true);
         return item;
+    }
+
+    public static ItemStack getPlayerHead(String playerName) {
+        ItemStack item = new ItemStack(Material.PLAYER_HEAD, 1);
+        SkullMeta skull = (SkullMeta) item.getItemMeta();
+        skull.setOwner(playerName);
+        item.setItemMeta(skull);
+        return item;
+    }
+
+    public static ItemStack createItem(Inventory inv, ItemStack item, int invSlot, String displayName, String... loreString) {
+        List<String> lore = new ArrayList();
+        return addItemStackLore(inv, invSlot, displayName, lore, item, loreString);
     }
 }
