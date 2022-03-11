@@ -135,7 +135,8 @@ public class Utils {
         return item;
     }
 
-    public static ItemStack createItem(Inventory inv, ItemStack item, int invSlot, String displayName, String... loreString) {
+    public static ItemStack createItem(Inventory inv, ItemStack item, int amount, int invSlot, String displayName, String... loreString) {
+        item.setAmount(amount);
         List<String> lore = new ArrayList();
         return addItemStackLore(inv, invSlot, displayName, lore, item, loreString);
     }
