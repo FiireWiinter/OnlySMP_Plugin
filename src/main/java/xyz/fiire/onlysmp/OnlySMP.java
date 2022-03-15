@@ -29,7 +29,7 @@ public final class OnlySMP extends JavaPlugin {
         new PayCommand(this);
         new DepositCommand(this);
         new WithdrawCommand(this);
-        new QuestCommand(this);
+        new QuestsCommand(this);
 
         // Fuck you Tea
         new TeaCommand(this);

@@ -20,7 +20,7 @@ commands:
   deposit:
     usage: /<command>
     description: Deposit the coins in your hands
-  quest:
+  quests:
     usage: /<command>
     description: Open the Quest GUI
   tea:

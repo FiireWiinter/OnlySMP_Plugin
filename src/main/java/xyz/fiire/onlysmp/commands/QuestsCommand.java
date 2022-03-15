@@ -10,9 +10,9 @@ import xyz.fiire.onlysmp.gui.QuestGUI;
 import java.util.Collections;
 import java.util.List;
 
-public class QuestCommand implements TabExecutor {
-    public QuestCommand(OnlySMP plugin) {
-        plugin.getCommand("quest").setExecutor(this);
+public class QuestsCommand implements TabExecutor {
+    public QuestsCommand(OnlySMP plugin) {
+        plugin.getCommand("quests").setExecutor(this);
     }
 
     @Override

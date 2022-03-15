@@ -1,18 +1,18 @@
 ## Things I still have to do
 
-- [ ] Add quests **_(IN WORK)_**
+- [X] Add quests **_(IN WORK)_**
 - [X] Track quests
   - [X] Player NBTContainer Array of Strings of completed quest keys
-  - [ ] Add a list of quest keys somewhere for /quests (maybe hardcodable in quest tracker)
-- [ ] /quests (gui)
-  - [ ] Should list all possible quests
-  - [ ] Finished quests are "enchanted"
+  - [X] Add a list of quest keys somewhere for /quests (maybe hardcodable in quest tracker)
+- [X] /quests (gui)
+  - [X] Should list all possible quests
+  - [X] Finished quests are "enchanted"
 - [X] /withdraw <amount>
 - [X] /deposit (coin held in hand)
 
 ## Quests
 - [X] First to Find Diamonds! [50 coins] A
-- [ ] First to make a Netherite Ingot [50 coins]
+- [X] First to make a Netherite Ingot [50 coins]
 - [ ] (Kill ___ (randomised player) [20 coins])
 - [X] Play a Music Disk [30 coins] [play-disc]
 - [ ] ~~(Give another Player a Flower [10 coins])~~
