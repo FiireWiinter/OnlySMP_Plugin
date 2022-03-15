@@ -1,6 +1,6 @@
 ## Things I still have to do
 
-- [X] Add quests **_(IN WORK)_**
+- [X] Add quests
 - [X] Track quests
   - [X] Player NBTContainer Array of Strings of completed quest keys
   - [X] Add a list of quest keys somewhere for /quests (maybe hardcodable in quest tracker)
@@ -11,8 +11,8 @@
 - [X] /deposit (coin held in hand)
 
 ## Quests
-- [X] First to Find Diamonds! [50 coins] A
-- [X] First to make a Netherite Ingot [50 coins]
+- [X] First to Find Diamonds! [50 coins] A [first-diamond]
+- [X] First to make a Netherite Ingot [50 coins] [first-netherite]
 - [ ] (Kill ___ (randomised player) [20 coins])
 - [X] Play a Music Disk [30 coins] [play-disc]
 - [ ] ~~(Give another Player a Flower [10 coins])~~
