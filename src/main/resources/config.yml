@@ -1,19 +1,25 @@
 # This file legit has the only purpose of being in here, so I can avoid File Errors lmao
 list_of_player:
   - FiireWiinter
-  - FiireUwU
   - GP1210
+  - StuffWithSimon
+  - pxluselive
+  - Its_Lukey
+  - RedVyren
+  - WesMaizter
 quests:
-  play-disc:
-    title: Let's jam together
-    description: Play a music disc
-    item: music_disc_otherside
-    amount: 30
-  death-height:
-    title: That was high
-    description: Die from fall damage
-    item: feather
-    amount: 10
+  first-diamond:
+    title: The first diamond
+    description: Be the first to find a Diamond
+    item: diamond
+    amount: 50
+    sql: first-diamond
+  first-netherite:
+    title: The first Netherite Ingot
+    description: Be the first to make a Netherite Ingot
+    item: netherite_ingot
+    amount: 50
+    sql: first-netherite
   command-withdraw:
     title: You're kinda rich
     description: Withdraw 50 coins
@@ -24,6 +30,21 @@ quests:
     description: Pay someone some coins
     item: COIN
     amount: 5
+  death-height:
+    title: That was high
+    description: Die from fall damage
+    item: feather
+    amount: 10
+  play-disc:
+    title: Let's jam together
+    description: Play a music disc
+    item: music_disc_otherside
+    amount: 30
+  enchant-item:
+    title: This is magic
+    description: Enchant an item
+    item: book
+    amount: 10
   kill-wither:
     title: You killed it
     description: Defeat a wither
@@ -34,8 +55,18 @@ quests:
     description: You saved a village from a raid
     item: totem_of_undying
     amount: 20
-  enchant-item:
-    title: This is magic
-    description: Enchant an item
-    item: book
-    amount: 10
+  adventuring-time:
+    title: Adventuring Time
+    description: Explore all the biomes
+    item: filled_map
+    amount: 200
+  hot-tourist:
+    title: Hot Tourist
+    description: Explore all Nether biomes
+    item: filled_map
+    amount: 30
+  stone-10k:
+    title: Stone Digger
+    description: Break 10.000 Stone/Deepslate
+    item: stone
+    amount: 100

@@ -55,15 +55,19 @@ public class SQLite {
     }
 
     public static void setVal(String key, String val) {
-        db.executeStatement(String.format("INSERT OR IGNORE INTO values (key, val) VALUES ('%s', '%s');", key, val));
+        db.executeStatement(String.format("INSERT OR IGNORE INTO `values` (key, val) VALUES ('%s', '%s');", key, val));
+    }
+
+    public static Object getVal(String key) {
+        return db.queryValue(String.format("SELECT * FROM `values` WHERE key='%s'", key), "val");
     }
 
     public static void delVal(String key) {
-        db.executeStatement(String.format("DELETE FROM values WHERE key='%s';", key));
+        db.executeStatement(String.format("DELETE FROM `values` WHERE key='%s';", key));
     }
 
     public static boolean getValKeyExist(String key) {
-        Object val = db.queryValue(String.format("SELECT * FROM values WHERE key='%s'", key), "key");
+        Object val = db.queryValue(String.format("SELECT * FROM `values` WHERE key='%s'", key), "key");
         return val != null;
     }
 

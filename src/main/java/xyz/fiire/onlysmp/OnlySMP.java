@@ -9,10 +9,7 @@ import xyz.fiire.onlysmp.listeners.PlayerJoin;
 import xyz.fiire.onlysmp.listeners.coins.CoinsOnBreak;
 import xyz.fiire.onlysmp.listeners.coins.CoinsOnPickup;
 import xyz.fiire.onlysmp.listeners.coins.CoinsOnPlace;
-import xyz.fiire.onlysmp.listeners.quests.QuestAdvancements;
-import xyz.fiire.onlysmp.listeners.quests.QuestOnDeath;
-import xyz.fiire.onlysmp.listeners.quests.QuestOnInteract;
-import xyz.fiire.onlysmp.listeners.quests.QuestOnKill;
+import xyz.fiire.onlysmp.listeners.quests.*;
 import xyz.fiire.onlysmp.papi.PAPI;
 import xyz.fiire.onlysmp.utils.*;
 
@@ -43,13 +40,17 @@ public final class OnlySMP extends JavaPlugin {
         // Init Listeners
         new GUIHandler(this);
         new PlayerJoin(this);
+        // Coin Listeners
         new CoinsOnBreak(this);
         new CoinsOnPlace(this);
         new CoinsOnPickup(this);
+        // Quest Listeners
         new QuestAdvancements(this);
         new QuestOnDeath(this);
         new QuestOnKill(this);
         new QuestOnInteract(this);
+        new QuestOnMine(this);
+        new QuestOnCraft(this);
 
         // Init PAPI
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
