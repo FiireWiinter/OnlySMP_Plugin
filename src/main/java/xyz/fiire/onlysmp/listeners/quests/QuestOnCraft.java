@@ -24,6 +24,7 @@ public class QuestOnCraft implements Listener {
 	@EventHandler
 	public void onDeath(CraftItemEvent e) {
 		Player p = (Player) e.getWhoClicked();
+		if (!QuestUtils.isSMPPlayer(p)) return;
 		ItemStack item = e.getInventory().getResult();
 		if (item.getType() == Material.NETHERITE_INGOT) {
 			if (SQLite.getValKeyExist("first-netherite")) return;

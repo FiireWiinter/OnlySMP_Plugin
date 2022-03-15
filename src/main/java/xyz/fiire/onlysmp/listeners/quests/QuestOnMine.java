@@ -22,6 +22,7 @@ public class QuestOnMine implements Listener {
     @EventHandler
     public void onMine(BlockBreakEvent e) {
         Player p = e.getPlayer();
+        if (!QuestUtils.isSMPPlayer(p)) return;
         int stone = p.getStatistic(Statistic.MINE_BLOCK, Material.STONE);
         int deepslate = p.getStatistic(Statistic.MINE_BLOCK, Material.DEEPSLATE);
         int amount = stone + deepslate;

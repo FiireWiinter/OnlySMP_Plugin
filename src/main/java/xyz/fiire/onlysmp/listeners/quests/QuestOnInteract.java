@@ -38,6 +38,7 @@ public class QuestOnInteract implements Listener {
 
     @EventHandler
     public void onInteract(PlayerInteractEvent e) {
+        if (!QuestUtils.isSMPPlayer(e.getPlayer())) return;
         Action action = e.getAction();
         if (action.equals(Action.RIGHT_CLICK_BLOCK)) {
             Block block = e.getClickedBlock();

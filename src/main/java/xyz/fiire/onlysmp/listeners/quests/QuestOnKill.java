@@ -24,6 +24,7 @@ public class QuestOnKill implements Listener {
         Entity entity = e.getEntity();
         Player killer = e.getEntity().getKiller();
         assert killer != null;
+        if (!QuestUtils.isSMPPlayer(killer)) return;
         Utils.debug("Death of " + entity.getName() + " by " + killer.getName());
         switch (entity.getName()) {
             case "Wither": {

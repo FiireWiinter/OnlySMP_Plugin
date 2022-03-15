@@ -26,6 +26,7 @@ public class QuestAdvancements implements Listener {
         Advancement advancement = e.getAdvancement();
         Player p = e.getPlayer();
         String key = advancement.getKey().toString();
+        if (!QuestUtils.isSMPPlayer(p)) return;
         switch (key) {
             case "minecraft:adventure/hero_of_the_village":
                 QuestUtils.finishQuest(p, "complete-raid");

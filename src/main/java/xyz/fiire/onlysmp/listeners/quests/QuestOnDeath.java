@@ -21,6 +21,7 @@ public class QuestOnDeath implements Listener {
     @EventHandler
     public void onDeath(PlayerDeathEvent e) {
         Player p = e.getEntity();
+        if (!QuestUtils.isSMPPlayer(p)) return;
         String text = e.getDeathMessage();
         assert text != null;
         if (text.contains("fell from a high place")) {

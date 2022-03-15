@@ -21,14 +21,10 @@ public class QuestUtils {
         return SQLite.getUserValue("amount", p.getUniqueId().toString()).toString();
     }
 
-    /*public static void finishQuest(Player p, Integer coinAmount, String questKey) {
-        if (isPlayerQuestCompleted(p, questKey)) return;
-        Integer current = (Integer) SQLite.getUserValue("amount", p.getUniqueId().toString());
-        int newAmount = current + coinAmount;
-        SQLite.setUserValue("amount", Integer.toString(newAmount), p.getUniqueId().toString());
-        addPlayerQuest(p, questKey);
-        p.sendMessage(Utils.chat(String.format("&e&lYou just got %s coins for completing a quest!", coinAmount)));
-    }*/
+    public static boolean isSMPPlayer(Player p) {
+        ArrayList<String> players = (ArrayList<String>) Config.getConfig().get("list_of_player");
+        return players.contains(p.getName());
+    }
 
     public static void finishQuest(Player p, String questKey) {
         if (isPlayerQuestCompleted(p, questKey)) return;
