@@ -37,6 +37,7 @@ public class QuestGUI {
         Utils.debug(mem.getKeys(false).toString());
         Set<String> keys = mem.getKeys(false);
 
+
         int slot = 0;
         for (String key : keys ) {
             // Get all the values from the config
@@ -51,6 +52,12 @@ public class QuestGUI {
                 Utils.createItem(inv, Utils.createCoin(1), 1, slot, "&e&l" + title, "&b" + description, String.format("&eReward: &6%s coins", amount));
             } else {
                 Utils.createItem(inv, material, 1, slot, "&e&l" + title, "&b" + description, String.format("&eReward: &6%s coins", amount));
+            }
+
+            // Handling the random-kill quest
+            if (key.equals("random-kill")) {
+                String playerToKill = SQLite.getVal(p.getName()).toString();
+                Utils.createItem(inv, material, 1, slot, "&e&l" + title, "&bKill " + playerToKill, String.format("&eReward: &6%s coins", amount));
             }
 
             // Add a glare, if a quest is completed
@@ -73,7 +80,6 @@ public class QuestGUI {
             ItemMeta meta = item.getItemMeta();
             List<String> lore = meta.getLore();
             if (sql != null) {
-                Utils.debug(SQLite.getVal("first-diamond").toString());
                 if (SQLite.getValKeyExist("first-diamond")) {
                     lore.add(Utils.chat(String.format("&eClaimed by %s", SQLite.getVal("first-diamond"))));
                 }

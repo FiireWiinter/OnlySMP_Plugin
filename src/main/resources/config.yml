@@ -1,6 +1,8 @@
 # This file legit has the only purpose of being in here, so I can avoid File Errors lmao
 list_of_player:
   - FiireWiinter
+  - FiireUwU
+banana:
   - StuffWithSimon
   - pxluselive
   - Its_Lukey
@@ -14,7 +16,13 @@ list_of_player:
   - ZombieDwarf
   - tzotzo
   - NeonIsSmelly
+  - Serapter
 quests:
+  random-kill:
+    title: Assassination
+    description: This is not used for this quest. Please contact FiireWiinter if you want this changed
+    item: netherite_sword
+    amount: 25
   first-diamond:
     title: The first diamond
     description: Be the first to find a Diamond

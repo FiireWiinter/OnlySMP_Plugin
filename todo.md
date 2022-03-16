@@ -13,7 +13,7 @@
 ## Quests
 - [X] First to Find Diamonds! [50 coins] A [first-diamond]
 - [X] First to make a Netherite Ingot [50 coins] [first-netherite]
-- [ ] (Kill ___ (randomised player) [20 coins])
+- [X] (Kill ___ (randomised player) [25 coins]) [random-kill]
 - [X] Play a Music Disk [30 coins] [play-disc]
 - [ ] ~~(Give another Player a Flower [10 coins])~~
 - [X] Mine 10,000 blocks [50 coins] [stone-10k]
