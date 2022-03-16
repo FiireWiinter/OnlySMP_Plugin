@@ -42,9 +42,7 @@ public class QuestAdvancements implements Listener {
                 break;
             case "minecraft:story/mine_diamond":
                 if (SQLite.getValKeyExist("first-diamond")) break;
-                Utils.debug("setting sql");
                 SQLite.setVal("first-diamond", p.getName());
-                Utils.debug(SQLite.getVal("first-diamond").toString());
                 QuestUtils.finishQuest(p, "first-diamond");
                 break;
             default:

@@ -28,9 +28,7 @@ public class QuestOnCraft implements Listener {
 		ItemStack item = e.getInventory().getResult();
 		if (item.getType() == Material.NETHERITE_INGOT) {
 			if (SQLite.getValKeyExist("first-netherite")) return;
-			Utils.debug("setting sql");
 			SQLite.setVal("first-netherite", p.getName());
-			Utils.debug(SQLite.getVal("first-netherite").toString());
 			QuestUtils.finishQuest(p, "first-netherite");
 		}
 	}

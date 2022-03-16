@@ -37,7 +37,6 @@ public class QuestGUI {
         Utils.debug(mem.getKeys(false).toString());
         Set<String> keys = mem.getKeys(false);
 
-
         int slot = 0;
         for (String key : keys ) {
             // Get all the values from the config

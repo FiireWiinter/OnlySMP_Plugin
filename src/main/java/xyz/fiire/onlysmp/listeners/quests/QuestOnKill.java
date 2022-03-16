@@ -39,7 +39,6 @@ public class QuestOnKill implements Listener {
         // Random killing Quest
         if (entity.getType() == EntityType.PLAYER) {
             String player = SQLite.getVal(killer.getName()).toString();
-            Utils.debug(player);
             if (player.equals(entity.getName())) QuestUtils.finishQuest(killer, "random-kill");
         }
     }
